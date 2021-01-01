@@ -29,6 +29,84 @@ public class Main {
     public static void main(String[] args) {
 
         String archetype = "archetype";
+        String name = "name";
+
+        switch (race) {
+            case "aarakocra":
+                break;
+            case "aasimar":
+                break;
+            case "bugbear":
+                break;
+            case "centaur":
+                break;
+            case "changeling":
+                break;
+            case "dragonborn":
+                break;
+            case "dwarf":
+                break;
+            case "elf":
+                break;
+            case "firbolg":
+                break;
+            case "genasi":
+                break;
+            case "gith":
+                break;
+            case "gnome":
+                break;
+            case "goblin":
+                break;
+            case "goliath":
+                break;
+            case "half-elf":
+                break;
+            case "half-orc":
+                break;
+            case "halfling":
+                break;
+            case "hobgoblin":
+                break;
+            case "human":
+                break;
+            case "kalashtar":
+                break;
+            case "kenku":
+                break;
+            case "kobold":
+                break;
+            case "leonin":
+                break;
+            case "lizardfolk":
+                break;
+            case "loxodon":
+                break;
+            case "minotaur":
+                break;
+            case "orc":
+                break;
+            case "satyr":
+                break;
+            case "shifter":
+                break;
+            case "simic hybrid":
+                break;
+            case "tabaxi":
+                break;
+            case "tiefling":
+                break;
+            case "triton":
+                break;
+            case "verkalken":
+                break;
+            case "verdan":
+                break;
+            case "warforged":
+                break;
+            case "Yuan-ti":
+                break;
+        }
 
         switch (gameClass) {
             case "barbarian":
@@ -72,7 +150,7 @@ public class Main {
                 break;
         }
 
-        System.out.println("A " + gender + " " + race + " " + gameClass + " with the " + background + " background. " + archetype);
+        System.out.println(name + ", a " + gender + " " + race + " " + gameClass + " with the " + background + " background. " + archetype);
     }
 
 }
