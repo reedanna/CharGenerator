@@ -52,6 +52,39 @@ public class Main {
     static String[] maleHumanNames = {"Aseir", "Bardeid", "Haseid", "Khemed", "Mehmen", "Sudeiman", "Zasheir", "Darvin", "Dorn", "Evendur", "Gorstag", "Grim", "Helm", "Malark", "Morn", "Randal", "Stedd", "Bor", "Fodel", "Glar", "Grigor", "Igan", "Ivor", "Kosef", "Mival", "Orel", "Pavel", "Sergor", "Ander", "Blath", "Bran", "Frath", "Geth", "Lander", "Luth", "Malcer", "Stor", "Taman", "Urth", "Aoth", "Bareris", "Ehput-Ki", "Kethoth", "Mumed", "Ramas", "So-Kehur", "Thazar-De", "Urhur", "Borivik", "Faurgar", "Jandar", "Kanithat", "Madislak", "Ralmevik", "Shaumar", "Vladislak", "An", "Chen", "Chi", "Fai", "Jiang", "Jun", "Lian", "Long", "Meng", "On", "Shan", "Shui", "Wen", "Anton", "Diero", "Marcon", "Pieron", "Rimardo", "Romero", "Salazar", "Umbero"};
     static String[] femaleHumanNames = {"Atala", "Ceidil", "Hama", "Jasmal", "Meilil", "Seipora", "Yasheira", "Zasheida", "Arveene", "Esvele", "Chessail", "Kerri", "Lureene", "Miri", "Rowan", "Shandri", "Tessele", "Alethra", "Kara", "Katernin", "Mara", "Natali", "Olma", "Tana", "Zora", "Amafrey", "Betha", "Cefrey", "Kethra", "Olga", "Silifrey", "Westra", "Arizima", "Chathi", "Nephis", "Nulara", "Murithi", "Sefris", "Thola", "Umara", "Zolis", "Fyevarra", "Hulmarra", "Immith", "Imzel", "Navarra", "Shevarra", "Tammith", "Yuldra", "Bai", "Chao", "Lia", "Lei", "Mei", "Qiao", "Shui", "Tai", "Balama", "Dona", "Faila", "Jalana", "Luisa", "Marta", "Quara", "Selise", "Vonda"};
     static String[] allHumanNames = new String[maleHumanNames.length + femaleHumanNames.length];
+    static String[] kalashtarNames = {"Coratash", "Dalavash", "Dolishara", "Halakosh", "Khoratari", "Koratana", "Lanhareth", "Molavakri", "Nevitash", "Sorashana", "Torashtai", "Valakhad", "Vishara"};
+    static String[] kenkuNames = {"Smasher", "Clanger", "Slicer", "Basher", "Rat Scratch", "Whistler", "Mouser", "Growler", "Sail Snap", "Hammerer", "Cutter"};
+    static String[] maleLeoninNames = {"Apto", "Athoz", "Baragon", "Bryguz", "Eremoz", "Gorioz", "Grexes", "Oriz", "Pyxathor", "Teoz", "Xemnon", "Xior"};
+    static String[] femaleLeoninNames = {"Aletha", "Atagone", "Demne", "Doxia", "Ecate", "Eriz", "Gragonde", "Iadma", "Koila", "Oramne", "Seza", "Ziore"};
+    static String[] allLeoninNames = new String[maleLeoninNames.length + femaleLeoninNames.length];
+    static String[] lizardfolkNames = {"Achuak", "Aryte", "Baeshra", "Darastrix", "Garurt", "Irhtos", "Jhank", "Kepesk", "Kethend", "Korth", "Kosj", "Kothar", "Litrix", "Mirik", "Othokent", "Sauriv", "Throden", "Thurkear", "Usk", "Valignat", "Vargach", "Verthica", "Vutha", "Vyth"};
+    static String[] maleLoxodonNames = {"Bayul", "Berov", "Brooj", "Chedumov", "Dobrun", "Droozh", "Golomov", "Heruj", "Ilromov", "Kel", "Nikoom", "Ondros", "Radomov", "Svetel", "Tamuj", "Throom", "Vasool"};
+    static String[] femaleLoxodonNames = {"Ajj", "Boja", "Dancu", "Dooja", "Elyuja", "Fanoor", "Irij", "Jasoo", "Katrun", "Lyooda", "Mayja", "Radu", "Shuja", "Soofya", "Totoor", "Verij", "Vesmova", "Yoolna", "Zarij", "Zoorja"};
+    static String[] allLoxodonNames = new String[maleLoxodonNames.length + femaleLoxodonNames.length];
+    static String[] maleMinotaurNames = {"Alovnek", "Brogmir", "Brozhdar", "Dornik", "Drakmir", "Drazhan", "Grozdan", "Kalazmir", "Klattic", "Melislek", "Nirikov", "Prezhlek", "Radolak", "Rugilar", "Sarovnek", "Svarakov", "Trovik", "Vraslak", "Yarvem"};
+    static String[] femaleMinotaurNames = {"Akra", "Bolsa", "Cica", "Dakka", "Drakisla", "Eleska", "Enka", "Irnaya", "Jaska", "Kalka", "Makla", "Noraka", "Pesha", "Raisha", "Sokali", "Takyat", "Vrokya", "Veska", "Yelka", "Zarka", "Zoka"};
+    static String[] allMinotaurNames = new String[maleMinotaurNames.length + femaleMinotaurNames.length];
+    static String[] maleOrcNames = {"Dench", "Feng", "Gell", "Henk", "Holg", "Imsh", "Keth", "Krusk", "Mhurren", "Ront", "Shump", "Thokk"};
+    static String[] femaleOrcNames = {"Baggi", "Emen", "Engong", "Kansif", "Myev", "Neega", "Ovak", "Ownka", "Shautha", "Vola", "Volen", "Yevelda"};
+    static String[] allOrcNames = new String[maleOrcNames.length + femaleOrcNames.length];
+    static String[] maleSatyrNames = {"Alekos", "Dimi", "Filippos", "Ilias", "Kyriakos", "Neofytos", "Omiros", "Pantelis", "Spyro", "Takis", "Zenon"};
+    static String[] femaleSatyrNames = {"Aliki", "Avra", "Chara", "Dafni", "Eirini", "Elpida", "Irini", "Kaiti", "Lia", "Niki", "Tasia", "Xeni", "Yanna", "Zoi"};
+    static String[] allSatyrNames = new String[maleSatyrNames.length + femaleSatyrNames.length];
+    static String[] shifterNames = {"Badger", "Bear", "Cat", "Fang", "Grace", "Grim", "Moon", "Rain", "Red", "Scar", "Stripe", "Swift", "Talon", "Wolf"};
+    static String[] tabaxiNames = {"Cloud", "Timber", "Jade", "Bird", "Thunder", "Snake", "Smoke"};
+    static String[] maleTieflingNames = {"Akmenos", "Amnon", "Harahas", "Ekernon", "Tados", "Kairon", "Leucis", "Melech", "Morthos", "Pelaios", "Skamos", "Therai"};
+    static String[] femaleTieflingNames = {"Akra", "Anakis", "Bryseis", "Criella", "Ea", "Kallista", "Lerissa", "Makaria", "Nemeia", "Pheleia", "Rieta"};
+    static String[] allTieflingNames = new String[maleTieflingNames.length + femaleTieflingNames.length];
+    static String[] maleTritonNames = {"Corus", "Delnis", "Jhimas", "Keros", "Molos", "Nalos", "Vodos", "Zunis"};
+    static String[] femaleTritonNames = {"Aryn", "Belthyn", "Duthyn", "Feloren", "Otanyn", "Shalryn", "Vlaryn", "Wolyn"};
+    static String[] allTritonNames = new String[maleTritonNames.length + femaleTritonNames.length];
+    static String[] maleVedalkenNames = {"Aglar", "Bellin", "Dallid", "Firellan", "Kavin", "Koplony", "Lomar", "Mathvan", "Modar", "Nebun", "Nhillosh", "Nitt", "Otrovac", "Ovlan", "Pelener", "Rill", "Trivaz", "Uldin", "Yolov", "Zataz"};
+    static String[] femaleVedalkenNames = {"Azi", "Barvisa", "Brazia", "Direll", "Fainn", "Griya", "Hallia", "Katrille", "Kovel", "Lilla", "Mirela", "Morai", "Nedress", "Ossya", "Pierenn", "Roya", "Sestri", "Triel", "Uzana", "Yaraghiya", "Zlovol"};
+    static String[] allVedalkenNames = new String[maleVedalkenNames.length + femaleVedalkenNames.length];
+    static String[] verdanNames = {"Bronn", "Crahma", "Dolar", "Dreeda", "Duglee", "Gruvald", "Hulm", "Jeal", "Kalo", "Klesh", "Korm", "Lathi", "Ovlig", "Paracii", "Pils", "Praet", "Promul", "Reezni", "Rin", "Shylk", "Slyr", "Sollo", "Stalsii", "Stromvo", "Stussa", "Syrkart", "Takat", "Toit", "Tubyna", "Varr", "Veriga", "Wraq", "Wural", "Wurxee"};
+    static String[] warforgedNames = {"Anchor", "Banner", "Bastion", "Blade", "Blue", "Bow", "Cart", "Church", "Crunch", "Crystal", "Dagger", "Dent", "Five", "Glaive", "Hammer", "Iron", "Lucky", "Mace", "Oak", "Onyx", "Pants", "Pierce", "Red", "Rod", "Rusty", "Scout", "Seven", "Shield", "Slash", "Smith", "Spike", "Temple", "Vault", "Wall"};
+    
+
 
 
     public static void main(String[] args) {
