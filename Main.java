@@ -9,7 +9,7 @@ public class Main {
 
     //arrays that apply to all characters
     static String[] genders = {"male", "female", "non-binary"};
-    static String[] races = {"aarakocra", "aasimar", "bugbear", "centaur", "changeling", "dragonborn", "dwarf", "elf", "firbolg", "genasi", "gnome", "goblin", "goliath", "half-elf", "half-orc", "halfling", "hobgoblin", "human", "kalashtar", "kenku", "kobold", "leonin", "lizardfolk", "loxodon", "minotaur", "orc", "satyr", "shifter", "simic hybrid", "tabaxi", "tiefling", "triton", "verkalken", "verdan", "warforged", "Yuan-ti"};
+    static String[] races = {"aarakocra", "aasimar", "bugbear", "centaur", "changeling", "dragonborn", "dwarf", "elf", "firbolg", "genasi", "gnome", "goblin", "goliath", "half-elf", "half-orc", "halfling", "hobgoblin", "human", "kalashtar", "kenku", "kobold", "leonin", "lizardfolk", "loxodon", "minotaur", "orc", "satyr", "shifter", "simic hybrid", "tabaxi", "tiefling", "triton", "verdalken", "verdan", "warforged", "Yuan-ti"};
     static String[] gameClasses = {"barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard", "artificer"};
     static String[] backgrounds = {"acolyte", "anthropologist", "archaeologist", "athlete", "celebrity adventurer's scion", "charlatan", "city watch", "clan crafter", "cloistered scholar", "courtier", "criminal", "entertainer", "faceless", "faction agent", "failed merchant", "far traveler", "fisher", "folk hero", "gambler", "guild artisan", "haunted one", "hermit", "inheritor", "knight of the order", "marine", "mercenary veteran", "noble", "outlander", "plaintiff", "rival intern", "sage", "sailor", "shipwright", "smuggler", "soldier", "urban bounty hunter", "urchin"};
 
@@ -28,6 +28,13 @@ public class Main {
     static String[] warlockPatrons = {"a Ghost in the Machine", "an Archfey", "Celestial", "Fathomless", "a Fiend", "a Genie", "a Great Old One", "a Hexblade", "a Lurker in the Deep", "the Raven Queen", "a Seeker", "Undead", "Undying"};
     static String[] wizardTraditions = {"Artificer", "Bladesinging", "Chronurgy", "Graviturgy", "Lore Mastery", "Onomancy", "the Order of Scribes", "Psionics", "Abjuration", "Conjuration", "Divination", "Enchantment", "Evocation", "Illusion", "Invention", "Necromancy", "Transmutation", "Technomancy", "Theurgy", "War Magic"};
     
+    //randomly choose one of two strings
+    public static String pickFromTwo(String x, String y) {
+        String[] choiceArray = {x, y};
+        return choiceArray[rand.nextInt(2)];
+    }
+
+    //capitalize first letter of string
     public static String capitalize(String str) {
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
@@ -45,9 +52,10 @@ public class Main {
             }
             else {
                 //pick a name of a random gender for non-binary characters (functionally this just picks from all racial names)
-                return giveName(race, genders[rand.nextInt(genders.length)]);
+                return giveName(race, pickFromTwo("male", "female"));
             }
         }
+        //special races (that use other races' name tables, etc)
         else {
             return "name";
         }
