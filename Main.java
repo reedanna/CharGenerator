@@ -93,13 +93,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        
-        String gender = genders[rand.nextInt(genders.length)];
-        String race = races[rand.nextInt(races.length)];
-        String gameClass= gameClasses[rand.nextInt(gameClasses.length)];
-        String background = backgrounds[rand.nextInt(backgrounds.length)];
-        String archetype = "archetype";
-        String name = giveUnisexName(race);
 
         nameMap.put("aaracokraNames", new String[] {"Aera", "Aial", "Aur", "Deekek", "Errk", "Heehk", "Ikki", "Kleeck", "Oorr", "Ouss", "Quaf", "Quierk", "Salleek", "Urreek", "Zeed"});
         nameMap.put("maleCentaurNames", new String[] {"Bonmod", "Boruvo", "Chodi", "Drozan", "Kozim", "Milosh", "Ninos", "Oleksi", "Orval", "Radovas", "Radom", "Rostis", "Svetyos", "Tomis", "Trijiro", "Volim", "Vlodim", "Yarog"});
@@ -114,10 +107,10 @@ public class Main {
         nameMap.put("allDwarfNames", new String[nameMap.get("maleDwarfNames").length + nameMap.get("femaleDwarfNames").length]);
         nameMap.put("maleElfNames", new String[] {"Adran", "Aelar", "Aramil", "Arannis", "Aust", "Beiro", "Berrian", "Carric", "Enialis", "Erdan", "Erevan", "Galinndan", "Hadarai", "Heian", "Himo", "Immeral", "Ivellios", "Laucian", "Mindartis", "Paelias", "Peren", "Quarion", "Riardon", "Rolen", "Soveliss", "Thamior", "Tharivol", "Theren", "Varis"});
         nameMap.put("femaleElfNames", new String[] {"Adrie", "Althaea", "Anastrianna", "Andraste", "Antinua", "Bethrynna", "Birel", "Caelynn", "Drusilia", "Enna", "Felosial", "Ielenia", "Jelenneth", "Keyleth", "Leshanna", "Lia", "Meriele", "Mialee", "Naivara", "Quelenna", "Quillathe", "Sariel", "Shanairra", "Shava", "Silaqui", "Theirastra", "Thia", "Vadania", "Valanthe", "Xanaphia"});
-        nameMap.put("allElfNames",  new String[nameMap.get("maleElfNames").length + nameMap.get("femaleElfNames").length];
+        nameMap.put("allElfNames",  new String[nameMap.get("maleElfNames").length + nameMap.get("femaleElfNames").length]);
         nameMap.put("maleGnomeNames", new String[] {"Alston", "Alvyn", "Boddynock", "Brocc", "Ettrgell", "Dimble", "Eldon", "Erky", "Fonkin", "Frug", "Gerbo", "Gimble", "Glim", "Jebeddo", "Kellen", "Namfoodle", "Orryn", "Roondar", "Seebo", "Warryn", "Wrenn", "Zook"});
         nameMap.put("femaleGnomeNames", new String[] {"Bimpnottin", "Breena", "Caramip", "Carlin", "Donella", "Duvamil", "Ella", "Ellyjobell", "Ellywick", "Lilli", "Loopmottin", "Lorilla", "Mardnab", "Nissa", "Nyx", "Oda", "Orla", "Roywyn", "Shamil", "Tana", "Waywocket", "Zanna"});
-        nameMap.put("allGnomeNames", new String[nameMap.get("maleGnomeNames").length + nameMap.get("femaleGnomeNames").length];
+        nameMap.put("allGnomeNames", new String[nameMap.get("maleGnomeNames").length + nameMap.get("femaleGnomeNames").length]);
         nameMap.put("goblinNames", new String[] {"Azzinax", "Babolax", "Blixanix", "Crixizix", "Dazzaz", "Estrix", "Finizix", "Juzba", "Kaluzax", "Lyzaxa", "Mizzix", "Myznar", "Nixispix", "Paxizaz", "Ravixiz", "Stixil", "Sunnix", "Tozinox", "Uxivozi", "Vazozav", "Wexiny", "Zizzix"});
         nameMap.put("goliathNames", new String[] {"Aukan", "Eglath", "Gae-Al", "Gauthak", "Ilikan", "Keothi", "Kuori", "Lo-Kag", "Manneo", "Maveith", "Nalla", "Orilo", "Paavu", "Pethani", "Thalai", "Thotham", "Uthal", "Vaenea", "Vimak"});
         nameMap.put("maleHalflingNames", new String[] {"Alton", "Ander", "Cade", "Corrin", "Eldon", "Errich", "Finnan", "Garret", "Lindal", "Lyle", "Merric", "Milo", "Osborn", "Perrin", "Reed", "Roscoe", "Wellby"});
@@ -157,6 +150,13 @@ public class Main {
         nameMap.put("allVedalkenNames", new String[nameMap.get("maleVedalkenNames").length + nameMap.get("femaleVedalkenNames").length]);
         nameMap.put("verdanNames", new String[] {"Bronn", "Crahma", "Dolar", "Dreeda", "Duglee", "Gruvald", "Hulm", "Jeal", "Kalo", "Klesh", "Korm", "Lathi", "Ovlig", "Paracii", "Pils", "Praet", "Promul", "Reezni", "Rin", "Shylk", "Slyr", "Sollo", "Stalsii", "Stromvo", "Stussa", "Syrkart", "Takat", "Toit", "Tubyna", "Varr", "Veriga", "Wraq", "Wural", "Wurxee"});
         nameMap.put("warforgedNames", new String[] {"Anchor", "Banner", "Bastion", "Blade", "Blue", "Bow", "Cart", "Church", "Crunch", "Crystal", "Dagger", "Dent", "Five", "Glaive", "Hammer", "Iron", "Lucky", "Mace", "Oak", "Onyx", "Pants", "Pierce", "Red", "Rod", "Rusty", "Scout", "Seven", "Shield", "Slash", "Smith", "Spike", "Temple", "Vault", "Wall"});
+
+        String gender = genders[rand.nextInt(genders.length)];
+        String race = races[rand.nextInt(races.length)];
+        String gameClass= gameClasses[rand.nextInt(gameClasses.length)];
+        String background = backgrounds[rand.nextInt(backgrounds.length)];
+        String archetype = "archetype";
+        String name = "name"
 
 
         switch (gameClass) {
