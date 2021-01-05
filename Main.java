@@ -87,9 +87,14 @@ public class Main {
     // static String[] warforgedNames = {"Anchor", "Banner", "Bastion", "Blade", "Blue", "Bow", "Cart", "Church", "Crunch", "Crystal", "Dagger", "Dent", "Five", "Glaive", "Hammer", "Iron", "Lucky", "Mace", "Oak", "Onyx", "Pants", "Pierce", "Red", "Rod", "Rusty", "Scout", "Seven", "Shield", "Slash", "Smith", "Spike", "Temple", "Vault", "Wall"};
 
 
-    public static String giveUnisexName(String race) {
+    public static String giveName(String race) {
         String nameList = race + "Names";
-        return nameMap.get(nameList)[rand.nextInt(nameMap.get(nameList).length)];
+        if (race == "aaracokra" || race == "changeling" || race == "goblin" || race == "goliath" || race == "kalashtar" || race == "kenku" || race == "lizardfolk" || race == "shifter" || race == "tabaxi" || race == "verdan" || race == "warforged") {
+            return nameMap.get(nameList)[rand.nextInt(nameMap.get(nameList).length)];
+        }
+        else {
+            return "name";
+        }
     }
 
     public static void main(String[] args) {
@@ -156,7 +161,7 @@ public class Main {
         String gameClass= gameClasses[rand.nextInt(gameClasses.length)];
         String background = backgrounds[rand.nextInt(backgrounds.length)];
         String archetype = "archetype";
-        String name = "name"
+        String name = giveName(race);
 
 
         switch (gameClass) {
