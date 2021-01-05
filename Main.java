@@ -86,11 +86,24 @@ public class Main {
     // static String[] verdanNames = {"Bronn", "Crahma", "Dolar", "Dreeda", "Duglee", "Gruvald", "Hulm", "Jeal", "Kalo", "Klesh", "Korm", "Lathi", "Ovlig", "Paracii", "Pils", "Praet", "Promul", "Reezni", "Rin", "Shylk", "Slyr", "Sollo", "Stalsii", "Stromvo", "Stussa", "Syrkart", "Takat", "Toit", "Tubyna", "Varr", "Veriga", "Wraq", "Wural", "Wurxee"};
     // static String[] warforgedNames = {"Anchor", "Banner", "Bastion", "Blade", "Blue", "Bow", "Cart", "Church", "Crunch", "Crystal", "Dagger", "Dent", "Five", "Glaive", "Hammer", "Iron", "Lucky", "Mace", "Oak", "Onyx", "Pants", "Pierce", "Red", "Rod", "Rusty", "Scout", "Seven", "Shield", "Slash", "Smith", "Spike", "Temple", "Vault", "Wall"};
 
+    public static String capitalize(String str) {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
 
-    public static String giveName(String race) {
+    public static String giveName(String race, String gender) {
         String nameList = race + "Names";
+        //if race uses unisex names
         if (race == "aaracokra" || race == "changeling" || race == "goblin" || race == "goliath" || race == "kalashtar" || race == "kenku" || race == "lizardfolk" || race == "shifter" || race == "tabaxi" || race == "verdan" || race == "warforged") {
             return nameMap.get(nameList)[rand.nextInt(nameMap.get(nameList).length)];
+        }
+        //if race uses gendered names
+        else if (race == "centaur" || race == "dragonborn" || race == "dwarf" || race == "elf" || race == "gnome" || race == "halfling" || race == "human" || race == "leonin" || race == "loxodon" || race == "minotaur" || race == "orc" || race == "satyr" || race == "tiefling" || race == "triton" || race == "vedalken") {
+            if (gender == "male" || gender == "female") {
+                return nameMap.get(gender + capitalize(nameList))[rand.nextInt(nameMap.get(gender + capitalize(nameList)).length)];
+            }
+            else {
+                return "name";
+            }
         }
         else {
             return "name";
@@ -161,7 +174,7 @@ public class Main {
         String gameClass= gameClasses[rand.nextInt(gameClasses.length)];
         String background = backgrounds[rand.nextInt(backgrounds.length)];
         String archetype = "archetype";
-        String name = giveName(race);
+        String name = giveName(race, gender);
 
 
         switch (gameClass) {
