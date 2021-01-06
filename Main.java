@@ -9,7 +9,7 @@ public class Main {
 
     //arrays that apply to all characters
     static String[] genders = {"male", "female", "non-binary"};
-    static String[] races = {"aarakocra", "aasimar", "bugbear", "centaur", "changeling", "dragonborn", "dwarf", "elf", "firbolg", "genasi", "gnome", "goblin", "goliath", "half-elf", "half-orc", "halfling", "hobgoblin", "human", "kalashtar", "kenku", "kobold", "leonin", "lizardfolk", "loxodon", "minotaur", "orc", "satyr", "shifter", "simic hybrid", "tabaxi", "tiefling", "triton", "verdalken", "verdan", "warforged", "Yuan-ti"};
+    static String[] races = {"aarakocra", "aasimar", "bugbear", "centaur", "changeling", "dragonborn", "dwarf", "elf", "firbolg", "genasi", "gnome", "goblin", "goliath", "half-elf", "half-orc", "halfling", "hobgoblin", "human", "kalashtar", "kenku", "kobold", "leonin", "lizardfolk", "loxodon", "minotaur", "orc", "satyr", "shifter", "simic hybrid", "tabaxi", "tiefling", "triton", "vedalken", "verdan", "warforged", "Yuan-ti"};
     static String[] gameClasses = {"barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard", "artificer"};
     static String[] backgrounds = {"acolyte", "anthropologist", "archaeologist", "athlete", "celebrity adventurer's scion", "charlatan", "city watch", "clan crafter", "cloistered scholar", "courtier", "criminal", "entertainer", "faceless", "faction agent", "failed merchant", "far traveler", "fisher", "folk hero", "gambler", "guild artisan", "haunted one", "hermit", "inheritor", "knight of the order", "marine", "mercenary veteran", "noble", "outlander", "plaintiff", "rival intern", "sage", "sailor", "shipwright", "smuggler", "soldier", "urban bounty hunter", "urchin"};
 
@@ -34,21 +34,27 @@ public class Main {
         return choiceArray[rand.nextInt(2)];
     }
 
+    //randomly choose an element of an array
+    public static String randomize(String[] randomArray) {
+        return randomArray[rand.nextInt(randomArray.length)];
+    }
+
     //capitalize first letter of string
     public static String capitalize(String str) {
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 
+    //choose a name
     public static String giveName(String race, String gender) {
         String nameList = race + "Names";
         //if race uses unisex names
-        if (race == "aaracokra" || race == "changeling" || race == "goblin" || race == "goliath" || race == "kalashtar" || race == "kenku" || race == "lizardfolk" || race == "shifter" || race == "tabaxi" || race == "verdan" || race == "warforged") {
-            return nameMap.get(nameList)[rand.nextInt(nameMap.get(nameList).length)];
+        if (race == "aarakocra" || race == "changeling" || race == "goblin" || race == "goliath" || race == "kalashtar" || race == "kenku" || race == "lizardfolk" || race == "shifter" || race == "tabaxi" || race == "verdan" || race == "warforged") {
+            return randomize(nameMap.get(nameList));
         }
         //if race uses gendered names
         else if (race == "centaur" || race == "dragonborn" || race == "dwarf" || race == "elf" || race == "gnome" || race == "halfling" || race == "human" || race == "leonin" || race == "loxodon" || race == "minotaur" || race == "orc" || race == "satyr" || race == "tiefling" || race == "triton" || race == "vedalken") {
             if (gender == "male" || gender == "female") {
-                return nameMap.get(gender + capitalize(nameList))[rand.nextInt(nameMap.get(gender + capitalize(nameList)).length)];
+                return randomize(nameMap.get(gender +  capitalize(nameList)));
             }
             else {
                 //pick a name of a random gender for non-binary characters (functionally this just picks from all racial names)
@@ -56,9 +62,66 @@ public class Main {
             }
         }
         //special races (that use other races' name tables, etc)
+        else if (race == "aasimar") {
+            return giveName("human", gender);
+        }
+        else if (race == "bugbear" || race == "hobgoblin" || race == "kobold") {
+            return giveName("goblin", gender);
+        }
+        else if (race == "firbolg") {
+            return giveName("elf", gender);
+        }
+        else if (race == "genasi") {
+            return giveName(pickFromTwo(pickFromTwo("half-elf", "gnome"), pickFromTwo("dwarf", "halfling")), gender);
+        }
+        else if (race == "half-elf") {
+            return giveName(pickFromTwo("human", "elf"), gender);
+        }
+        else if (race == "half-orc") {
+            return giveName(pickFromTwo("human", "orc"), gender);
+        }
+        else if (race == "simic hybrid") {
+            return giveName(pickFromTwo("half-elf", "vedalken"), gender);
+        }
+        else if (race == "Yuan-ti") {
+            return giveName("human", gender);
+        }
         else {
             return "name";
         }
+    }
+
+    //choose an archetype
+    public static String giveArchetype(String gameClass) {
+        switch (gameClass) {
+            case "barbarian":
+                return "This barbarian follows the " + randomize(barbarianPaths) + ".";
+            case "bard":
+                return "This bard is a member of the " + randomize(bardColleges) + ".";
+            case "cleric":
+                return "This cleric serves a deity of the " + randomize(clericDomains) + ".";
+            case "druid":
+                return "This druid is a member of the " + randomize(druidCircles) + ".";
+            case "fighter":
+                return "This fighter's archetype is the " + randomize(fighterArchetypes) + ".";
+            case "monk":
+                return "This monk follows the " + randomize(monkTraditions) + ".";
+            case "paladin":
+                return "This paladin has taken an " + randomize(paladinOaths) + ".";
+            case "ranger":
+                return "This ranger's archetype is the " + randomize(rangerArchetypes) + ".";
+            case "rogue":
+                return "This rogue's archetype is the " + randomize(rogueArchetypes) + ".";
+            case "sorcerer":
+                return "This sorcerer's power comes from their " + randomize(sorcererOrigins) + ".";
+            case "warlock":
+                return "This warlock's patron is " + randomize(warlockPatrons) + ".";
+            case "wizard":
+                return "This wizard follows the traditions of " + randomize(wizardTraditions) + ".";
+            case "artificer":
+                return "This artificer specializes as a" + randomize(artificerSpecialties) + ".";
+        }
+        return "archetype";
     }
 
     public static void main(String[] args) {
@@ -105,55 +168,12 @@ public class Main {
         nameMap.put("verdanNames", new String[] {"Bronn", "Crahma", "Dolar", "Dreeda", "Duglee", "Gruvald", "Hulm", "Jeal", "Kalo", "Klesh", "Korm", "Lathi", "Ovlig", "Paracii", "Pils", "Praet", "Promul", "Reezni", "Rin", "Shylk", "Slyr", "Sollo", "Stalsii", "Stromvo", "Stussa", "Syrkart", "Takat", "Toit", "Tubyna", "Varr", "Veriga", "Wraq", "Wural", "Wurxee"});
         nameMap.put("warforgedNames", new String[] {"Anchor", "Banner", "Bastion", "Blade", "Blue", "Bow", "Cart", "Church", "Crunch", "Crystal", "Dagger", "Dent", "Five", "Glaive", "Hammer", "Iron", "Lucky", "Mace", "Oak", "Onyx", "Pants", "Pierce", "Red", "Rod", "Rusty", "Scout", "Seven", "Shield", "Slash", "Smith", "Spike", "Temple", "Vault", "Wall"});
 
-        String gender = genders[rand.nextInt(genders.length)];
-        String race = races[rand.nextInt(races.length)];
-        String gameClass= gameClasses[rand.nextInt(gameClasses.length)];
-        String background = backgrounds[rand.nextInt(backgrounds.length)];
-        String archetype = "archetype";
-        String name = giveName(race, gender);
-
-
-        switch (gameClass) {
-            case "barbarian":
-                archetype = "This barbarian follows the " + barbarianPaths[rand.nextInt(barbarianPaths.length)] + ".";
-                break;
-            case "bard":
-                archetype = "This bard is a member of the " + bardColleges[rand.nextInt(bardColleges.length)] + ".";
-                break;
-            case "cleric":
-                archetype = "This cleric serves a deity of the " + clericDomains[rand.nextInt(clericDomains.length)] + ".";
-                break;
-            case "druid":
-                archetype = "This druid is a member of the " + druidCircles[rand.nextInt(druidCircles.length)] + ".";
-                break;
-            case "fighter":
-                archetype = "This fighter's archetype is the " + fighterArchetypes[rand.nextInt(fighterArchetypes.length)] + ".";
-                break;
-            case "monk":
-                archetype = "This monk follows the " + monkTraditions[rand.nextInt(monkTraditions.length)] + ".";
-                break;
-            case "paladin":
-                archetype = "This paladin has taken an " + paladinOaths[rand.nextInt(paladinOaths.length)] + ".";
-                break;
-            case "ranger":
-                archetype = "This ranger's archetype is the " + rangerArchetypes[rand.nextInt(rangerArchetypes.length)] + ".";
-                break;
-            case "rogue":
-                archetype = "This rogue's archetype is the " + rogueArchetypes[rand.nextInt(rogueArchetypes.length)] + ".";
-                break;
-            case "sorcerer":
-                archetype = "This sorcerer's power comes from their " + sorcererOrigins[rand.nextInt(sorcererOrigins.length)] + ".";
-                break;
-            case "warlock":
-                archetype = "This warlock's patron is " + warlockPatrons[rand.nextInt(warlockPatrons.length)] + ".";
-                break;
-            case "wizard":
-                archetype = "This wizard follows the traditions of " + wizardTraditions[rand.nextInt(wizardTraditions.length)] + ".";
-                break;
-            case "artificer":
-                archetype = "This artificer specializes as a" + artificerSpecialties[rand.nextInt(artificerSpecialties.length)] + ".";
-                break;
-        }
+        String gender = randomize(genders);
+        String race = randomize(races);
+        String gameClass= randomize(gameClasses);
+        String background = randomize(backgrounds);
+        String archetype = giveArchetype(gameClass);
+        String name = giveName(race, gender);        
 
         System.out.println(name + ", a " + gender + " " + race + " " + gameClass + " with the " + background + " background. " + archetype);
     }
